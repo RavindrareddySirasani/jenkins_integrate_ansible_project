@@ -1,0 +1,8 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: install git
+      command: yum install git -y
+    - name: install tree
+      command: yum install tree -y
