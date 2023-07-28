@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: install docker
+      command: yum install docker -y
+      notify: restart docker
+    - name: docker version
+      command: docker --version
+  handlers:
+    - name: restart docker
+      command: systemctl start docker
